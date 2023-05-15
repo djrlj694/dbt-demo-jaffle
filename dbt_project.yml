@@ -1,3 +1,16 @@
+# dbt_project.yml
+# Dbt Demo: COVID-19
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# The dbt project configuration file. Identifies its parent directory as the
+# root of a dbt project. Specifies how dbt operates on said project.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 2. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
+# 3. https://docs.getdbt.com/reference/dbt_project.yml
+
 
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
