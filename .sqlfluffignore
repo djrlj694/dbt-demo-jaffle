@@ -1,0 +1,25 @@
+# .sqlfluffignore
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# An optional SQLFluff (dialect-flexible SQL linter) configuration file.
+# Controls which files SQLFluff lints or ignores.
+#
+# REFERENCES:
+# 1. https://github.com/dbt-labs/jaffle-shop-template/blob/main/.sqlfluffignore
+# 2. https://blog.montrealanalytics.com/automating-dbt-development-workflows-with-pre-commit-b6c7ca708f7
+# 3. https://docs.sqlfluff.com/en/stable/configuration.html
+
+
+# dbt output files
+reports/
+target/
+# dbt <1.0.0
+dbt_modules/
+# dbt >=1.0.0
+dbt_packages/
+
+# Other
+analyses/
+macros/
