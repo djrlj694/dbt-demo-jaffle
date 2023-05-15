@@ -1,0 +1,25 @@
+# packages.yml
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# An optional dbt packages configuration file. Specifies dbt packages to
+# install.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/docs/build/packages
+# 2. https://hub.getdbt.com/dbt-labs/dbt_utils/latest
+# 3. https://hub.getdbt.com/dbt-labs/metrics/latest/
+# 4. https://www.getdbt.com/blog/installing-dbt-packages/
+# 5. https://github.com/dbt-labs/jaffle-shop-template/blob/main/packages.yml
+# 6. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/packages.yml
+
+
+packages:
+
+  - package: dbt-labs/metrics
+    # version: [">=1.4.0", "<1.5.0"]
+    version: 1.5.0
+
+  - package: dbt-labs/dbt_utils
+    version: 1.1.0

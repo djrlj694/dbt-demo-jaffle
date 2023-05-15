@@ -1,0 +1,44 @@
+# _metrics.yml
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# A dbt data model configuration file. Declares this dbt project's staging-layer
+# Jaffle Shop data models.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
+# 2. https://docs.getdbt.com/docs/build/metrics
+# 3. https://github.com/dbt-labs/jaffle-shop-template/blob/main/models/metrics/metrics.yml
+# 4. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/models/marts/average_order_amount.yml
+# 5. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/models/marts/expenses.yml
+# 6. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/models/marts/profit.yml
+# 7. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/models/marts/revenue.yml
+
+
+version: 2
+
+metrics:
+
+  - name: revenue
+    label: Revenue
+    model: ref('orders')
+    description: The total revenue of our jaffle business
+
+    calculation_method: sum
+    expression: amount
+
+    timestamp: order_date
+    time_grains: [day, week, month, quarter, year]
+
+    dimensions:
+      - customer_status
+      - had_credit_card_payment
+      - had_coupon_payment
+      - had_bank_transfer_payment
+      - had_gift_card_payment
+
+    filters:
+      - field: status
+        operator: '='
+        value: "'completed'"

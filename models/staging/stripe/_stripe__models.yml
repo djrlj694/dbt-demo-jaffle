@@ -1,0 +1,44 @@
+# _stripe__models.yml
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# A dbt data model configuration file. Declares this dbt project's staging-layer
+# Stripe data models.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 2. https://docs.getdbt.com/docs/build/models
+# 3. https://docs.getdbt.com/reference/model-properties
+# 4. https://github.com/dbt-labs/jaffle_shop/blob/main/models/staging/schema.yml
+# 5. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/models/staging/stg_payments.yml
+
+
+version: 2
+
+models:
+
+  - name: stg_stripe__payments
+    description: >
+      Payments data with basic cleaning and transformation applied, one row per
+      payment.
+    columns:
+      - name: payment_id
+        description: Primary key for each payment.
+        tests:
+          - unique
+          - not_null
+          - warn_if_negative:  # Custom generic test
+              severity: error  # Overrides
+      - name: order_id
+        description: Foreign key to Jaffle Shop orders.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_jaffle_shop__orders')
+              field: order_id
+      - name: payment_method
+        description: '{{ doc("payments__payment_status") }}'
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']

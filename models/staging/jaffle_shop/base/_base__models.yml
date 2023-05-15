@@ -1,0 +1,45 @@
+# _base__models.yml
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# A dbt data model configuration file. Declares this dbt project's staging-layer
+# base Jaffle Shop data models.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 2. https://docs.getdbt.com/docs/build/models
+# 3. https://docs.getdbt.com/reference/model-properties
+# 4. https://github.com/dbt-labs/dbt-databricks-demo/blob/master/models/staging/jaffle_shop/stg_jaffle_shop.yml
+# 5. https://github.com/dbt-labs/jaffle_shop/blob/main/models/staging/schema.yml
+# 6. https://github.com/dbt-labs/jaffle_shop_metrics/blob/main/models/staging/stg_customers.yml
+# 7. https://github.com/dbt-labs/jaffle-shop-template/blob/main/models/staging/__models.yml
+
+
+version: 2
+
+models:
+
+  - name: base_jaffle_shop__customers
+    description: >
+      Customer data with basic cleaning and transformation applied, one row per
+      customer.
+    columns:
+      - name: customer_id
+        description: Primary key for each customer.
+        tests:
+          - unique
+          - not_null
+          - is_positive  # Custom generic test
+
+  - name: base_jaffle_shop__deleted_customers
+    description: >
+      Deleted customer data with basic cleaning and transformation applied, one
+      row per customer.
+    columns:
+      - name: customer_id
+        description: Primary key for each customer.
+        tests:
+          - unique
+          - not_null
+          - is_positive  # Custom generic test

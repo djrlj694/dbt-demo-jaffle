@@ -1,0 +1,33 @@
+# _models.yml
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# A dbt data model configuration file. Declares this dbt project's metrics-layer
+# Jaffle Shop data models.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 2. https://docs.getdbt.com/docs/build/models
+# 3. https://docs.getdbt.com/reference/model-properties
+# 4. https://github.com/dbt-labs/dbt-databricks-demo/blob/master/models/marts/core/core.yml
+# 5. https://github.com/dbt-labs/jaffle_shop/blob/main/models/schema.yml
+
+
+version: 2
+
+models:
+
+  - name: revenue
+    description: The total revenue of our jaffle business
+    columns:
+      - name: customer_status
+        description: >
+          The status of the customer and whether they are churned, at risk of
+          churn, or healthy.
+        tests:
+          - not_null
+      - name: revenue
+        description: Total amount (AUD) of the order.
+        tests:
+          - not_null
