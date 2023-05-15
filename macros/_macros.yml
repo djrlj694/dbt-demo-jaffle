@@ -1,0 +1,35 @@
+# _macros.yml
+# Dbt Demo: Jaffle Shop
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# A dbt macros configuration file. Declares this dbt project's macros.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/faqs/docs/documenting-macros
+# 2. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 3. https://docs.getdbt.com/reference/macro-properties
+
+
+version: 2
+
+macros:
+
+  - name: cents_to_dollars
+    description: A macro to convert cents to dollars.
+    arguments:
+      - name: column_name
+        type: string
+        description: The name of the column you want to convert.
+      - name: precision
+        type: integer
+        description: The number of decimal places (defaults to 2).
+
+  - name: limit_data_in_dev
+    description: >
+      A macro to limit the number of rows to return in a development
+      environment.
+    arguments:
+      - name: number_of_rows_to_return
+        type: integer
+        description: The number of rows to return (defaults to 500).
