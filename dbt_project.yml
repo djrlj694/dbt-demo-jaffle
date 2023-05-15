@@ -10,6 +10,10 @@
 # 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
 # 2. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
 # 3. https://docs.getdbt.com/reference/dbt_project.yml
+# 4. https://github.com/dbt-labs/dbt-databricks-demo
+# 5. https://github.com/dbt-labs/jaffle_shop
+# 6. https://github.com/dbt-labs/jaffle_shop_metrics
+# 7. https://github.com/dbt-labs/jaffle-shop-template
 
 
 # Name your project! Project names should contain only lowercase characters
@@ -23,9 +27,10 @@ require-dbt-version: [">=1.2.0-rc1", "<2.0.0"]
 # This setting configures which "profile" dbt uses for this project.
 profile: 'dbt_demo_jaffle'
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
+# These configurations specify where dbt should look for different types of
+# files. For example, the `model-paths` config states that models in this
+# project can be found in the "models/" directory. You probably won't need to
+# change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
