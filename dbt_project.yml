@@ -1,3 +1,20 @@
+# dbt_project.yml
+# Dbt Demo: COVID-19
+#
+# Copyright © 2023 djrlj694.dev. All rights reserved.
+#
+# The dbt project configuration file. Identifies its parent directory as the
+# root of a dbt project. Specifies how dbt operates on said project.
+#
+# REFERENCES:
+# 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 2. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
+# 3. https://docs.getdbt.com/reference/dbt_project.yml
+# 4. https://github.com/dbt-labs/dbt-databricks-demo
+# 5. https://github.com/dbt-labs/jaffle_shop
+# 6. https://github.com/dbt-labs/jaffle_shop_metrics
+# 7. https://github.com/dbt-labs/jaffle-shop-template
+
 
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
@@ -5,13 +22,15 @@
 name: 'dbt_demo_jaffle'
 version: '1.0.0'
 config-version: 2
+require-dbt-version: [">=1.2.0-rc1", "<2.0.0"]
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'dbt_demo_jaffle'
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
+# These configurations specify where dbt should look for different types of
+# files. For example, the `model-paths` config states that models in this
+# project can be found in the "models/" directory. You probably won't need to
+# change these!
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -19,10 +38,11 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-clean-targets:         # directories to be removed by `dbt clean`
+target-path: "target"  # Directory which will store compiled SQL files
+clean-targets:         # Directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
-
+  - "logs"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -35,3 +55,15 @@ models:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: ephemeral
+    marts:
+      +materialized: table
+      finance:
+        +schema: finance
+      marketing:
+        +schema: marketing
+    metrics:
+      - _metrics.yml
