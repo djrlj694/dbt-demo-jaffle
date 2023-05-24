@@ -8,19 +8,20 @@
 #
 # REFERENCES:
 # 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
-# 2. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
-# 3. https://docs.getdbt.com/reference/dbt_project.yml
-# 4. https://github.com/dbt-labs/dbt-databricks-demo
-# 5. https://github.com/dbt-labs/jaffle_shop
-# 6. https://github.com/dbt-labs/jaffle_shop_metrics
-# 7. https://github.com/dbt-labs/jaffle-shop-template
+# 2. https://docs.getdbt.com/docs/build/projects
+# 4. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
+# 5. https://docs.getdbt.com/reference/dbt_project.yml
+# 5. https://github.com/dbt-labs/dbt-databricks-demo
+# 6. https://github.com/dbt-labs/jaffle_shop
+# 7. https://github.com/dbt-labs/jaffle_shop_metrics
+# 8. https://github.com/dbt-labs/jaffle-shop-template
 
 
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: dbt_demo_jaffle
-version: 1.0.0
+version: v0.3.1
 config-version: 2
 require-dbt-version: [">=1.2.0-rc1", "<2.0.0"]
 
