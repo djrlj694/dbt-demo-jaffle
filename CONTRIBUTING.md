@@ -1,7 +1,7 @@
 # Contributing Guidelines
 
 Version-controllable contributions toward improving [this project](README.md) (its source
-code, documentation, etc.) are welcome via GitHub's [pull request][PR] process.  By
+code, documentation, etc.) are welcome via GitHub's [pull request][PR] process. By
 submitting a pull request, you acknowledge and agree to licensing your
 contribution to this project's [owner][owner] and community.
 
