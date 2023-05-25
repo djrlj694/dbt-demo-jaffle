@@ -1,6 +1,6 @@
 # Dbt Demo: Jaffle Shop
 
-A demo of a dbt self-contained project for transforming data from a fictional
+A demo of a self-contained dbt project for transforming data from a fictional
 e-commerce source.
 
 ## Introduction

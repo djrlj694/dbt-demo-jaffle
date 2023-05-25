@@ -1,5 +1,5 @@
 # dbt_project.yml
-# Dbt Demo: COVID-19
+# Dbt Demo: Jaffle Shop
 #
 # Copyright © 2023 djrlj694.dev. All rights reserved.
 #
@@ -7,10 +7,10 @@
 # root of a dbt project. Specifies how dbt operates on said project.
 #
 # REFERENCES:
-# 1. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 1. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
 # 2. https://docs.getdbt.com/docs/build/projects
-# 4. https://docs.getdbt.com/blog/how-to-design-and-structure-metrics
-# 5. https://docs.getdbt.com/reference/dbt_project.yml
+# 3. https://docs.getdbt.com/guides/best-practices/how-we-structure/5-the-rest-of-the-project
+# 4. https://docs.getdbt.com/reference/dbt_project.yml
 # 5. https://github.com/dbt-labs/dbt-databricks-demo
 # 6. https://github.com/dbt-labs/jaffle_shop
 # 7. https://github.com/dbt-labs/jaffle_shop_metrics
@@ -21,7 +21,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: dbt_demo_jaffle
-version: 0.3.2
+version: 0.3.3
 config-version: 2
 require-dbt-version: [">=1.2.0-rc1", "<2.0.0"]
 
